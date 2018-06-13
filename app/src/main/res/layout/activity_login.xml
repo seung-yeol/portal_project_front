@@ -8,11 +8,13 @@
     tools:context="kr.ac.jejunu.portal_front.LoginActivity">
 
     <EditText
+        android:id="@+id/edit_id"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="ID" />
 
     <EditText
+        android:id="@+id/edit_password"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Password" />

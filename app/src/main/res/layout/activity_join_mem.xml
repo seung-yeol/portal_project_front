@@ -8,18 +8,21 @@
     tools:context="kr.ac.jejunu.portal_front.JoinMemActivity">
 
     <EditText
+        android:id="@+id/edit_id"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:hint="아이디" />
 
     <EditText
+        android:id="@+id/edit_password"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:hint="패스워드" />
 
     <EditText
+        android:id="@+id/edit_password_re"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -32,26 +35,29 @@
         android:layout_marginTop="50dp">
 
         <EditText
-            android:id="@+id/edit_id"
+            android:id="@+id/edit_name"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:hint="이름" />
 
         <RadioGroup
+            android:id="@+id/radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/edit_id"
+            android:layout_alignBottom="@+id/edit_name"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/edit_id"
+            android:layout_alignTop="@+id/edit_name"
             android:gravity="center"
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/radio_man"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="남성" />
 
             <RadioButton
+                android:id="@+id/radio_woman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="여성" />
@@ -60,18 +66,21 @@
     </RelativeLayout>
 
     <EditText
+        android:id="@+id/edit_birthday"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:hint="생년월일" />
 
     <EditText
+        android:id="@+id/edit_phone_num"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:hint="전화번호" />
 
     <Button
+        android:id="@+id/btn_join_mem"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
