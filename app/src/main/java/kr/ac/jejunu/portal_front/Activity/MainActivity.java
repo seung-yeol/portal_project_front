@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnReadAnonymity.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ReadAnonymityActivity.class);
+            Intent intent = new Intent(MainActivity.this, OthersDiaryListActivity.class);
             startActivity(intent);
         });
 

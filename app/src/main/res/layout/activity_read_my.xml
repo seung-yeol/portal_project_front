@@ -7,10 +7,11 @@
     tools:context="kr.ac.jejunu.portal_front.Activity.MyDiaryListActivity">
 
     <TextView
+        android:id="@+id/txt_diary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="나의 일기 읽기"
+        android:text="나의 일기 리스트"
         android:textSize="30dp"
         android:layout_marginBottom="10dp"/>
 

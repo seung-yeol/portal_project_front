@@ -24,7 +24,8 @@
         <activity android:name=".Activity.WriteDiaryActivity" />
         <activity android:name=".Activity.ReadAnonymityActivity" />
         <activity android:name=".Activity.MyDiaryListActivity" />
-        <activity android:name=".Activity.ReadDiaryActivity"></activity>
+        <activity android:name=".Activity.ReadDiaryActivity"/>
+        <activity android:name=".Activity.OthersDiaryListActivity"/>
     </application>
 
 </manifest>

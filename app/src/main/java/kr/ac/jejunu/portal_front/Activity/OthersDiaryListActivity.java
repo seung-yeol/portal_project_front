@@ -21,15 +21,18 @@ import kr.ac.jejunu.portal_front.CommonData;
 import kr.ac.jejunu.portal_front.R;
 import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
 import kr.ac.jejunu.portal_front.task.get.GetMyDiaryListTask;
+import kr.ac.jejunu.portal_front.task.get.GetRandomDiaryListTask;
 import kr.ac.jejunu.portal_front.vo.DiaryVO;
 
-public class OthersDiaryListActivity extends AppCompatActivity implements OnTaskResultListener<List<DiaryVO>>{
+public class OthersDiaryListActivity extends AppCompatActivity implements OnTaskResultListener<List<DiaryVO>> {
     private MyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_my);
+
+        ((TextView) findViewById(R.id.txt_diary)).setText("익명 일기 리스트");
 
         initRecyclerView();
 
@@ -44,25 +47,25 @@ public class OthersDiaryListActivity extends AppCompatActivity implements OnTask
         recyclerView.setAdapter(adapter);
 
         DividerItemDecoration dividerItemDecoration =
-                new DividerItemDecoration(getApplicationContext(),new LinearLayoutManager(this).getOrientation());
+                new DividerItemDecoration(getApplicationContext(), new LinearLayoutManager(this).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
     }
 
     private void executeTask() {
-        GetMyDiaryListTask task = new GetMyDiaryListTask(this);
-        task.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, ((CommonData)getApplication()).getUserId());
+        GetRandomDiaryListTask task = new GetRandomDiaryListTask(this);
+        task.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, ((CommonData) getApplication()).getUserId());
     }
 
     @Override
     public void onTaskResult(List<DiaryVO> result) {
-        Log.e(this.toString(), "onTaskResult: " +  result.size() );
+        Log.e(this.toString(), "onTaskResult: " + result.size());
         adapter.addVOs(result);
     }
 
-    class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
+    class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private List<DiaryVO> vos;
 
-        MyAdapter(){
+        MyAdapter() {
             this.vos = new ArrayList<>();
         }
 
@@ -91,7 +94,7 @@ public class OthersDiaryListActivity extends AppCompatActivity implements OnTask
             return vos.size();
         }
 
-        void addVOs(List<DiaryVO> vos){
+        void addVOs(List<DiaryVO> vos) {
             this.vos.addAll(vos);
             notifyDataSetChanged();
         }
