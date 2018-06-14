@@ -1,15 +1,15 @@
-package kr.ac.jejunu.portal_front.task;
+package kr.ac.jejunu.portal_front.task.post;
 
 import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.NameValuePair;
 import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
 
 /**
  * Created by seung-yeol on 2018. 6. 13..
@@ -25,7 +25,7 @@ public class LoginCheckTask extends BasePostTask<Boolean> {
 
     @Override
     String url() {
-        return "http://117.17.102.230:8080/user/login";
+        return BASE_URL + "user/login";
     }
 
     @Override

@@ -1,4 +1,4 @@
-package kr.ac.jejunu.portal_front.task;
+package kr.ac.jejunu.portal_front.task.get;
 
 /**
  * Created by seung-yeol on 2018. 6. 13..
@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+
+import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
 
 public abstract class BaseGetTask<E> extends AsyncTask<String, Void, E> {
     private OnTaskResultListener<E> onTaskResultListener;

@@ -1,4 +1,4 @@
-package kr.ac.jejunu.portal_front.task;
+package kr.ac.jejunu.portal_front.task.post;
 
 /**
  * Created by seung-yeol on 2018. 6. 13..
@@ -29,9 +29,11 @@ import cz.msebera.android.httpclient.message.BasicHeader;
 import cz.msebera.android.httpclient.message.BasicNameValuePair;
 import cz.msebera.android.httpclient.protocol.HTTP;
 import cz.msebera.android.httpclient.util.EntityUtils;
+import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
 
 public abstract class BasePostTask<E> extends AsyncTask<String, Void, E> {
     private OnTaskResultListener<E> onTaskResultListener;
+    final String BASE_URL = "http://117.17.102.230:8080";
 
     BasePostTask(OnTaskResultListener onTaskResultListener){
         this.onTaskResultListener = onTaskResultListener;
