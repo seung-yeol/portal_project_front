@@ -7,12 +7,24 @@
     android:orientation="vertical"
     tools:context="kr.ac.jejunu.portal_front.Activity.JoinMemActivity">
 
-    <EditText
-        android:id="@+id/edit_id"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:hint="아이디" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="30dp">
+        <EditText
+            android:id="@+id/edit_id"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:hint="아이디" />
+        <Button
+            android:id="@+id/btn_same_check"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="아이디 중복확인"/>
+
+    </LinearLayout>
+
 
     <EditText
         android:id="@+id/edit_password"
