@@ -22,10 +22,10 @@
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.JoinMemActivity" />
         <activity android:name=".Activity.WriteDiaryActivity" />
-        <activity android:name=".Activity.ReadAnonymityActivity" />
         <activity android:name=".Activity.MyDiaryListActivity" />
-        <activity android:name=".Activity.ReadDiaryActivity"/>
+        <activity android:name=".Activity.ReadMyDiaryActivity"/>
         <activity android:name=".Activity.OthersDiaryListActivity"/>
+        <activity android:name=".Activity.ReadOthersDiaryActivity"/>
     </application>
 
 </manifest>

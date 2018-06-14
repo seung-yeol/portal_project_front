@@ -80,9 +80,10 @@ public class MyDiaryListActivity extends AppCompatActivity implements OnTaskResu
             holder.txtTitle.setText(vos.get(position).getTitle());
             holder.txtWriteDate.setText(vos.get(position).getWriteDate());
             holder.itemView.setOnClickListener(v -> {
-                Intent intent = new Intent(MyDiaryListActivity.this, ReadDiaryActivity.class);
+                Intent intent = new Intent(MyDiaryListActivity.this, ReadMyDiaryActivity.class);
                 intent.putExtra("title", vos.get(position).getTitle());
                 intent.putExtra("story", vos.get(position).getStory());
+                intent.putExtra("diaryId", vos.get(position).getId());
                 startActivity(intent);
             });
         }

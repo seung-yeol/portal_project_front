@@ -40,20 +40,14 @@ public class WriteDiaryActivity extends AppCompatActivity implements OnTaskResul
             vo.setUserId(userId);
             vo.setTitle(editTitle.getText().toString());
             vo.setStory(editStory.getText().toString());
-            vo.setWriteDate(getCurrentDay());
+            vo.setWriteDate(CommonData.getCurrentDay());
 
             WriteDiaryTask task = new WriteDiaryTask(this);
             task.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, vo);
         });
     }
 
-    private String getCurrentDay(){
-        long now = System.currentTimeMillis();
-        Date date = new Date(now);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        return sdf.format(date);
-    }
 
     @Override
     public void onTaskResult(Boolean result) {

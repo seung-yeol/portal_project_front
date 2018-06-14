@@ -34,7 +34,7 @@ public class SendJsonRead implements Read {
             String json = "";
             json = jsonObject.toString();
 
-            // Set some headers to inform server about the type of the content
+            // Set some headers to inform server about the type of the comment
             httpCon.setRequestProperty("Accept", "application/json");
             httpCon.setRequestProperty("Content-type", "application/json");
 

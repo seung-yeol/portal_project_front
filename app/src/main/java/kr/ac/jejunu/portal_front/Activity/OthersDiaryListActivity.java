@@ -20,7 +20,6 @@ import java.util.List;
 import kr.ac.jejunu.portal_front.CommonData;
 import kr.ac.jejunu.portal_front.R;
 import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
-import kr.ac.jejunu.portal_front.task.get.GetMyDiaryListTask;
 import kr.ac.jejunu.portal_front.task.get.GetRandomDiaryListTask;
 import kr.ac.jejunu.portal_front.vo.DiaryVO;
 
@@ -82,9 +81,10 @@ public class OthersDiaryListActivity extends AppCompatActivity implements OnTask
             holder.txtTitle.setText(vos.get(position).getTitle());
             holder.txtWriteDate.setText(vos.get(position).getWriteDate());
             holder.itemView.setOnClickListener(v -> {
-                Intent intent = new Intent(OthersDiaryListActivity.this, ReadDiaryActivity.class);
+                Intent intent = new Intent(OthersDiaryListActivity.this, ReadOthersDiaryActivity.class);
                 intent.putExtra("title", vos.get(position).getTitle());
                 intent.putExtra("story", vos.get(position).getStory());
+                intent.putExtra("diaryId", vos.get(position).getId());
                 startActivity(intent);
             });
         }
