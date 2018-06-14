@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="kr.ac.jejunu.portal_front.MainActivity">
+    tools:context="kr.ac.jejunu.portal_front.Activity.MainActivity">
 
     <Button
         android:id="@+id/btn_write_diary"

@@ -1,69 +1,57 @@
 package kr.ac.jejunu.portal_front.task.post;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.LinkedList;
-import java.util.List;
+import android.util.Log;
 
-import cz.msebera.android.httpclient.NameValuePair;
-import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
+import kr.ac.jejunu.portal_front.vo.UserVO;
 
 /**
  * Created by seung-yeol on 2018. 6. 14..
  */
 
 public class JoinMemberTask extends BasePostTask<Boolean> {
-    private String userId;
-    private String password;
-    private String userName;
-    private String birthday;
-    private String phoneNum;
-    private String gender;
+    private JSONObject jsonObject;
+    private String str;
 
-
-    public JoinMemberTask(OnTaskResultListener onTaskResultListener) {
+    public JoinMemberTask(OnTaskResultListener<Boolean> onTaskResultListener) {
         super(onTaskResultListener);
     }
 
     @Override
-    String url() {
-        return BASE_URL + "join_mem";
+    Read setRead() {
+        return new SendJsonRead(jsonObject);
     }
 
     @Override
-    void setPostParam(String[] param) {
-        userId = param[0];
-        password = param[1];
-        userName = param[2];
-        birthday = param[3];
-        phoneNum = param[4];
-        gender = param[5];
+    String setUrl() {
+        return BASE_URL + "/user/join_mem";
     }
 
     @Override
-    List<NameValuePair> setNameValues() throws UnsupportedEncodingException {
-        List<NameValuePair> nameValues = new LinkedList<>();
+    void getPostParam(Object[] param) {
+        UserVO vo = (UserVO) param[0];
 
-        nameValues.add(new BasicNameValuePair(
-                "userId", URLDecoder.decode(userId, "UTF-8")));
-        nameValues.add(new BasicNameValuePair(
-                "password", URLDecoder.decode(password, "UTF-8")));
-        nameValues.add(new BasicNameValuePair(
-                "userName", URLDecoder.decode(userName, "UTF-8")));
-        nameValues.add(new BasicNameValuePair(
-                "birthday", URLDecoder.decode(birthday, "UTF-8")));
-        nameValues.add(new BasicNameValuePair(
-                "phoneNum", URLDecoder.decode(phoneNum, "UTF-8")));
-        nameValues.add(new BasicNameValuePair(
-                "gender", URLDecoder.decode(gender, "UTF-8")));
+        str = vo.toString();
 
-
-        return nameValues;
+        jsonObject = new JSONObject();
+        try {
+            jsonObject.accumulate("userId", vo.getUserId());
+            jsonObject.accumulate("password", vo.getPassword());
+            jsonObject.accumulate("name", vo.getUserName());
+            jsonObject.accumulate("birthday", vo.getBirthday());
+            jsonObject.accumulate("phoneNo", vo.getPhoneNo());
+            jsonObject.accumulate("gender", vo.getGender());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     Boolean parse(String responseString) {
+        Log.e(this.toString(), "parse: " + responseString );
         return responseString.equals("true");
     }
 }

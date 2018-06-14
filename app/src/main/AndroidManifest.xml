@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.ac.jejunu.portal_front">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".CommonData"
@@ -12,15 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".JoinMemActivity" />
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.JoinMemActivity" />
+        <activity android:name=".Activity.WriteDiaryActivity" />
+        <activity android:name=".Activity.ReadAnonymityActivity" />
+        <activity android:name=".Activity.ReadMyActivity"></activity>
     </application>
 
 </manifest>

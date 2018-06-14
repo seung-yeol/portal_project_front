@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="kr.ac.jejunu.portal_front.JoinMemActivity">
+    tools:context="kr.ac.jejunu.portal_front.Activity.JoinMemActivity">
 
     <EditText
         android:id="@+id/edit_id"

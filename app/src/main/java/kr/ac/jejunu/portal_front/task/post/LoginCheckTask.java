@@ -19,31 +19,35 @@ public class LoginCheckTask extends BasePostTask<Boolean> {
     private String userId;
     private String password;
 
-    public LoginCheckTask(OnTaskResultListener onTaskResultListener) {
+    public LoginCheckTask(OnTaskResultListener<Boolean> onTaskResultListener) {
         super(onTaskResultListener);
     }
 
     @Override
-    String url() {
-        return BASE_URL + "user/login";
+    String setUrl() {
+        return BASE_URL + "/user/login";
     }
 
     @Override
-    void setPostParam(String[] param) {
-        userId = param[0];
-        password = param[1];
+    void getPostParam(Object[] param) {
+        userId = (String)param[0];
+        password = (String)param[1];
     }
 
     @Override
-    List<NameValuePair> setNameValues() throws UnsupportedEncodingException {
+    Read setRead() {
         List<NameValuePair> nameValues = new LinkedList<>();
 
-        nameValues.add(new BasicNameValuePair(
-                "userId", URLDecoder.decode(userId, "UTF-8")));
-        nameValues.add(new BasicNameValuePair(
-                "password", URLDecoder.decode(password, "UTF-8")));
+        try {
+            nameValues.add(new BasicNameValuePair(
+                    "userId", URLDecoder.decode(userId, "UTF-8")));
+            nameValues.add(new BasicNameValuePair(
+                    "password", URLDecoder.decode(password, "UTF-8")));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
-        return nameValues;
+        return new SendParameterRead(nameValues);
     }
 
     @Override

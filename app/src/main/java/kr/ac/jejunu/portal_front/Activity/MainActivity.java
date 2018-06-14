@@ -1,8 +1,11 @@
-package kr.ac.jejunu.portal_front;
+package kr.ac.jejunu.portal_front.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+
+import kr.ac.jejunu.portal_front.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +23,18 @@ public class MainActivity extends AppCompatActivity {
         Button btnReadMy = findViewById(R.id.btn_read_my);
 
         btnWriteDiary.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, WriteDiaryActivity.class);
+            startActivity(intent);
+        });
 
+        btnReadAnonymity.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ReadAnonymityActivity.class);
+            startActivity(intent);
+        });
+
+        btnReadMy.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ReadMyActivity.class);
+            startActivity(intent);
         });
     }
 }
