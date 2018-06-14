@@ -23,7 +23,8 @@
         <activity android:name=".Activity.JoinMemActivity" />
         <activity android:name=".Activity.WriteDiaryActivity" />
         <activity android:name=".Activity.ReadAnonymityActivity" />
-        <activity android:name=".Activity.DiaryListActivity"></activity>
+        <activity android:name=".Activity.MyDiaryListActivity" />
+        <activity android:name=".Activity.ReadDiaryActivity"></activity>
     </application>
 
 </manifest>

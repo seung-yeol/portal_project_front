@@ -16,8 +16,8 @@ import kr.ac.jejunu.portal_front.vo.DiaryVO;
  * Created by seung-yeol on 2018. 6. 14..
  */
 
-public class ReadMyDiaryTask extends BaseGetTask<List<DiaryVO>> {
-    public ReadMyDiaryTask(OnTaskResultListener onTaskResultListener) {
+public class GetMyDiaryListTask extends BaseGetTask<List<DiaryVO>> {
+    public GetMyDiaryListTask(OnTaskResultListener onTaskResultListener) {
         super(onTaskResultListener);
     }
 

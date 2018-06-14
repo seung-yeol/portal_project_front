@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="kr.ac.jejunu.portal_front.Activity.DiaryListActivity">
+    tools:context="kr.ac.jejunu.portal_front.Activity.MyDiaryListActivity">
 
     <TextView
         android:layout_width="match_parent"

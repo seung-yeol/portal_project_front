@@ -1,13 +1,15 @@
 package kr.ac.jejunu.portal_front.Activity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -18,10 +20,10 @@ import java.util.List;
 import kr.ac.jejunu.portal_front.CommonData;
 import kr.ac.jejunu.portal_front.R;
 import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
-import kr.ac.jejunu.portal_front.task.get.ReadMyDiaryTask;
+import kr.ac.jejunu.portal_front.task.get.GetMyDiaryListTask;
 import kr.ac.jejunu.portal_front.vo.DiaryVO;
 
-public class DiaryListActivity extends AppCompatActivity implements OnTaskResultListener<List<DiaryVO>>{
+public class OthersDiaryListActivity extends AppCompatActivity implements OnTaskResultListener<List<DiaryVO>>{
     private MyAdapter adapter;
 
     @Override
@@ -30,6 +32,7 @@ public class DiaryListActivity extends AppCompatActivity implements OnTaskResult
         setContentView(R.layout.activity_read_my);
 
         initRecyclerView();
+
         executeTask();
     }
 
@@ -46,8 +49,8 @@ public class DiaryListActivity extends AppCompatActivity implements OnTaskResult
     }
 
     private void executeTask() {
-        ReadMyDiaryTask task = new ReadMyDiaryTask(this);
-        task.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, ((CommonData)getApplication()).getUserId(), "0");
+        GetMyDiaryListTask task = new GetMyDiaryListTask(this);
+        task.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, ((CommonData)getApplication()).getUserId());
     }
 
     @Override
@@ -66,7 +69,7 @@ public class DiaryListActivity extends AppCompatActivity implements OnTaskResult
         @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = View.inflate(parent.getContext(), R.layout.item_diary, null);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_diary, parent, false);
 
             return new MyViewHolder(view);
         }
@@ -75,6 +78,12 @@ public class DiaryListActivity extends AppCompatActivity implements OnTaskResult
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             holder.txtTitle.setText(vos.get(position).getTitle());
             holder.txtWriteDate.setText(vos.get(position).getWriteDate());
+            holder.itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(OthersDiaryListActivity.this, ReadDiaryActivity.class);
+                intent.putExtra("title", vos.get(position).getTitle());
+                intent.putExtra("story", vos.get(position).getStory());
+                startActivity(intent);
+            });
         }
 
         @Override
@@ -90,9 +99,12 @@ public class DiaryListActivity extends AppCompatActivity implements OnTaskResult
         class MyViewHolder extends RecyclerView.ViewHolder {
             private TextView txtTitle;
             private TextView txtWriteDate;
+            private View itemView;
 
-            public MyViewHolder(View itemView) {
+            MyViewHolder(View itemView) {
                 super(itemView);
+
+                this.itemView = itemView;
 
                 txtTitle = itemView.findViewById(R.id.txt_title);
                 txtWriteDate = itemView.findViewById(R.id.txt_write_date);

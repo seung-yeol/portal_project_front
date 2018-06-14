@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class DiaryVO {
     private Integer id;
+    private String userId;
     private String title;
     private String story;
     private String writeDate;
