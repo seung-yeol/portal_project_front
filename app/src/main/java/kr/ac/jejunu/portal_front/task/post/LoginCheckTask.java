@@ -10,6 +10,8 @@ import java.util.List;
 import cz.msebera.android.httpclient.NameValuePair;
 import cz.msebera.android.httpclient.message.BasicNameValuePair;
 import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
+import kr.ac.jejunu.portal_front.task.post.read.Read;
+import kr.ac.jejunu.portal_front.task.post.read.SendParameterRead;
 
 /**
  * Created by seung-yeol on 2018. 6. 13..

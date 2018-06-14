@@ -7,9 +7,12 @@ import android.app.Application;
  */
 
 public class CommonData extends Application {
-    private String userName;
+    private String userId;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserId(String userId){
+        this.userId = userId;
+    }
+    public String getUserId() {
+        return userId;
     }
 }

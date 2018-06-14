@@ -17,6 +17,7 @@ import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
 
 public abstract class BaseGetTask<E> extends AsyncTask<String, Void, E> {
     private OnTaskResultListener<E> onTaskResultListener;
+    final String BASE_URL = "http://117.17.102.230:8080";
 
     BaseGetTask(OnTaskResultListener onTaskResultListener){
         this.onTaskResultListener = onTaskResultListener;

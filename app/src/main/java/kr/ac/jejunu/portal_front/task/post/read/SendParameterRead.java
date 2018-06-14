@@ -1,4 +1,4 @@
-package kr.ac.jejunu.portal_front.task.post;
+package kr.ac.jejunu.portal_front.task.post.read;
 
 import android.util.Log;
 
@@ -23,7 +23,7 @@ import cz.msebera.android.httpclient.util.EntityUtils;
 public class SendParameterRead implements Read {
     private final List<NameValuePair> nameValues;
 
-    SendParameterRead(List<NameValuePair> nameValues){
+    public SendParameterRead(List<NameValuePair> nameValues){
         this.nameValues = new ArrayList<>(nameValues);
     }
 

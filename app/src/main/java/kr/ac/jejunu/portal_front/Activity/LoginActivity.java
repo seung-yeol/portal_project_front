@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import kr.ac.jejunu.portal_front.CommonData;
 import kr.ac.jejunu.portal_front.R;
 import kr.ac.jejunu.portal_front.task.post.JoinMemberTask;
 import kr.ac.jejunu.portal_front.task.post.LoginCheckTask;
@@ -34,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(v -> {
             LoginCheckTask loginCheckTask = new LoginCheckTask(result -> {
                 if ((Boolean) result){
+                    ((CommonData)getApplication()).setUserId(editId.getText().toString());
+
                     Toast.makeText(LoginActivity.this,
                             "로그인! ", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);

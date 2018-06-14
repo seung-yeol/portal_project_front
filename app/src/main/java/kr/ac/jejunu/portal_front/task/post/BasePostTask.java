@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
+import kr.ac.jejunu.portal_front.task.post.read.Read;
 
 public abstract class BasePostTask<E> extends AsyncTask<Object, Void, E> {
     private OnTaskResultListener<E> onTaskResultListener;

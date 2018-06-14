@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnReadMy.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ReadMyActivity.class);
+            Intent intent = new Intent(MainActivity.this, DiaryListActivity.class);
             startActivity(intent);
         });
     }

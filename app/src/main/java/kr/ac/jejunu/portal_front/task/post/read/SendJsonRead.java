@@ -1,9 +1,6 @@
-package kr.ac.jejunu.portal_front.task.post;
+package kr.ac.jejunu.portal_front.task.post.read;
 
 import android.util.Log;
-
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.json.JSONObject;
 
@@ -11,11 +8,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by seung-yeol on 2018. 6. 14..
@@ -24,7 +18,7 @@ import java.util.List;
 public class SendJsonRead implements Read {
     private final JSONObject jsonObject;
 
-    SendJsonRead(JSONObject jsonObject) {
+    public SendJsonRead(JSONObject jsonObject) {
         this.jsonObject = jsonObject;
     }
 

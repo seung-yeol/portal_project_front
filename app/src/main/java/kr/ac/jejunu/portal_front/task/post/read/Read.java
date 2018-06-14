@@ -1,9 +1,9 @@
-package kr.ac.jejunu.portal_front.task.post;
+package kr.ac.jejunu.portal_front.task.post.read;
 
 /**
  * Created by seung-yeol on 2018. 6. 14..
  */
 
-interface Read {
+public interface Read {
     String read(String url);
 }
