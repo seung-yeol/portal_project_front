@@ -26,7 +26,7 @@ public class GetDiaryByIdTask extends BaseGetTask<List<DiaryVO>> {
         StringBuilder s = new StringBuilder();
         String str= "";
 
-        if (params.length != 0 ||params[0].length() != 0){
+        if (params.length != 0 ){
             for (String param : params) {
                 s.append(param).append("z");
             }

@@ -68,7 +68,7 @@ public class CommonData extends Application {
     }
 
     public boolean dateCheck(String date){
-        String preDate = preferences.getString("date", "");
+        String preDate = preferences.getString(userId, "");
         return preDate.equals(date);
     }
 
