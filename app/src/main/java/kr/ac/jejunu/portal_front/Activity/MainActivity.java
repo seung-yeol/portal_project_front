@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
         executeTask();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        executeTask();
+    }
+
     private void initBtn() {
         Button btnWriteDiary = findViewById(R.id.btn_write_diary);
         Button btnReadAnonymity = findViewById(R.id.btn_read_anonymity);

@@ -20,11 +20,13 @@ import java.util.List;
 import kr.ac.jejunu.portal_front.CommonData;
 import kr.ac.jejunu.portal_front.R;
 import kr.ac.jejunu.portal_front.task.OnTaskResultListener;
+import kr.ac.jejunu.portal_front.task.get.GetDiaryByIdTask;
 import kr.ac.jejunu.portal_front.task.get.GetRandomDiaryListTask;
 import kr.ac.jejunu.portal_front.vo.DiaryVO;
 
 public class OthersDiaryListActivity extends AppCompatActivity implements OnTaskResultListener<List<DiaryVO>> {
     private MyAdapter adapter;
+    private boolean check = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,18 @@ public class OthersDiaryListActivity extends AppCompatActivity implements OnTask
 
         initRecyclerView();
 
-        executeTask();
+        check = ((CommonData) getApplication()).dateCheck(CommonData.getCurrentDay());
+
+        if (!check) {
+            executeTask();
+        } else {
+            List<String> ids = ((CommonData) getApplication()).getOtherDiaryIdList(CommonData.getCurrentDay());
+            GetDiaryByIdTask task = new GetDiaryByIdTask(result -> {
+                Log.e("fdf", "onCreate: " + ((List<DiaryVO>) result).size() );
+                adapter.addVOs((List<DiaryVO>) result);
+            });
+            task.executeOnExecutor(AsyncTask.SERIAL_EXECUTOR, (String[])ids.toArray(new String[ids.size()]));
+        }
     }
 
     private void initRecyclerView() {
@@ -58,6 +71,9 @@ public class OthersDiaryListActivity extends AppCompatActivity implements OnTask
     @Override
     public void onTaskResult(List<DiaryVO> result) {
         Log.e(this.toString(), "onTaskResult: " + result.size());
+
+        ((CommonData) getApplication()).setOthersDiaryList(result, CommonData.getCurrentDay());
+
         adapter.addVOs(result);
     }
 
