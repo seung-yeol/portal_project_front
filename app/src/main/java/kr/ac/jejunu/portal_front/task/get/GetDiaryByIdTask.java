@@ -24,11 +24,16 @@ public class GetDiaryByIdTask extends BaseGetTask<List<DiaryVO>> {
     @Override
     String url(String[] params) {
         StringBuilder s = new StringBuilder();
-        for (String param : params) {
-            s.append(param).append("z");
+        String str= "";
+
+        if (params[0].length() != 0){
+            for (String param : params) {
+                s.append(param).append("z");
+            }
+            str  = s.toString();
+            str = str.substring(0, str.length()-1);
         }
-        String str  = s.toString();
-        str = str.substring(0, str.length()-1);
+
 
         return BASE_URL + "/diary/read/"+ str;
     }
